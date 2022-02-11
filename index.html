@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>javascript test2</title> 
+	<link rel="stylesheet" href="CSS/index.css">
+
+</head>
+<body>
+	<h1 style="text-align: center; color: blue">JavaScript Test -2</h1>
+	<h2 style="text-align:center;color:orange">Set-1----------->Arrays</h2>
+	<h3>Write a program to print 1-100 prime numbers.</h3>
+	<p id="prime"></p>
+	<script>
+		let allPrimes = (n) => {
+   //Create new n+1 array and mark them as true
+   let isPrime = new Array(n+1).fill(true);
+   isPrime[0] = false;
+   isPrime[1] = false;  
+   let primes = [];
+   for(let i = 2; i <= n; i++){
+     //if the number is  
+     if(isPrime[i] === true){
+        primes.push(i); 
+     }     
+      //mark all the numbers divisible i as false
+      let next = i * i;
+      while (next <= n) {
+        isPrime[next] = false;
+        next += i;
+      }  
+   }
+   return primes;
+}
+document.getElementById("prime").innerHTML=(allPrimes(100)+"<br>")
+	</script>
+
+
+
+	<h3>2.write a program to display images in your webpage every 10 sec - single image at a time</h3>
+	
+	<img id="img" src="images/arjun.jpg" >
+	<script>
+		let images = new Array();
+		images[0] = "images/arjun.jpg";
+		images[1] = "images/babyy.jpg";
+		images[2] = "images/images.jpg";
+		images[3] = "images/shadow.jpg";
+		images[4] = "images/shiva.jpg"
+		setInterval("changeImage()", 5000);
+		var x = 0;
+		function changeImage() {
+			document.getElementById("img").src=images[x];
+			x++;
+		}		
+	</script>
+
+
+
+	<h3>3.write a program to display quotes (one after the other in sequence) every 10 sec</h3>
+	<q id="myquote">The greatest glory in living lies not in never falling, but in rising every time we fall.</q>
+		<script>
+			let quotes = new Array("The way to get started is to quit talking and begin doing.","Your time is limited, so don't waste it living someone else's life.","Be yourself everyone else is already taken.","If life were predictable it would cease to be life, and be without flavor","Simplicity is the ultimate sophistication.");
+			setInterval("changeQuote()", 5000);
+			let xox = 0;
+			function changeQuote() {
+				document.getElementById("myquote").innerHTML = quotes[xox];
+				xox++
+			}		
+		</script>
+
+
+
+
+
+
+
+
+
+
+	<h3>5.Perform the following operations on an array - repeat these tasks on 2 more arrays:</h3>
+	<p>1.concat()</p>
+	<p>2.join()</p>
+	<p>3.pop()</p>
+	<p>4.reverse()</p>
+	<p>5.shift()</p>
+	<p>6.slice()</p>
+	<p>7.sort()</p>
+	<p>8.splice()</p>
+	<p>9.toString()</p>
+	<p>10.unshift</p>
+
+	<h3 style="color:red">concat(): </h3>
+	<em> <span style="color:blue" >concat()</span> method joins two or more strings.it does not change the exsisting code but return  new array</em>
+
+	<p id="concatt"></p>
+	<script>
+		let _concat=["Google","Chrome","Firefox","Explore","Safari"];
+		let _cancat2=["Ibm","Tcs","ResourceOne","Cts"];
+		let _result=_concat+_cancat2
+		document.getElementById("concatt").innerHTML=_result;
+	</script>
+
+    <h3 style="color:red">join(): </h3>
+	  <em> <span style="color:blue" >Join()</span>method returns an array as a string and it does not change the exsisting values </em>
+	   <p id="joinn"></p>
+	 <script>
+		let _values=["Red","Blue","Green","Orange","Pink"];
+		let _result2=_values.join(" and ")
+		document.getElementById("joinn").innerHTML=_result2;
+	 </script>
+
+
+	 <h3 style="color:red">pop(): </h3>
+	 <em><span style="color:blue">Pop()</span> method removes value from end of the array</em>.
+	 <p id ="popp"></p>
+	 <p id ="popp2"></p>
+	 <script>
+	 	let _pop=["egg","fish","chicken","apple"];
+	 	let _result3=_pop.pop()
+	 	document.getElementById("popp").innerHTML=_result3;//APPLE IS REMOVED FROM AN ARRAY
+	 	document.getElementById("popp2").innerHTML=_pop
+	 </script>
+
+
+
+	 <h3 style="color:red">push()</h3>
+	 <em><span style="color:blue">push()</span> method adds the values to the end of the array</em>
+	 <p id="pushh"></p>
+	 <p id="pushh2"></p>
+	 <script>
+	 	let _push=["apple","bannana","mango","orange","pineapple"];
+	 	let _result4=_push.push("kiwi")// kiwi is added to _push array at end
+	 	document.getElementById("pushh").innerHTML=_result4;
+	 	document.getElementById("pushh2").innerHTML=_push
+	 </script>
+
+
+	 <h3 style="color:red">reverse()</h3>
+	 <em><span style="color:blue">reverse()</span> methods reveses the given array above</em>
+	 <p id ="reversee"></p>
+	 <script>
+	 	let _reverse=["reddy","hema","burgupally","audi","dog","house"];
+	 	let result5=_reverse.reverse();
+	 	document.getElementById("reversee").innerHTML=_reverse;
+	 </script>
+
+
+	 <h3 style="color:red">shift()</h3>
+	 <em><span style="color:blue">shift()</span> method removes values from the begging of an array</em>
+	 <p id ="shiftt"></p>
+	 <script>
+	 	let _shiftt=["reddy","hema","burgupally","audi","dog","house"];
+	 	let result6=_shiftt.shift();
+	 	document.getElementById("shiftt").innerHTML=_shiftt;
+	 </script>
+
+
+	 <h3 style="color:red">slice()</h3>
+	 <em><span style="color:blue">slice()</span>method extracts a part of a string,method returns the extracted part in a new string,does not change the original array</em>
+	 <p id ="slicee"></p>
+	 <p id ="slicee2"></p>
+	 <script>
+	 const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+     const r = fruits.slice(1, 3);//it gives first value orange and (3-1) is lemon
+     document.getElementById("slicee").innerHTML = r;
+     document.getElementById("slicee2").innerHTML = fruits;
+	 </script>
+
+
+	 <h3 style="color:red">sort()</h3>
+	 <em><span style="color:blue">sort()</span>method returns the according to accending order</em>
+	 <p id="sortt"></p>
+	 <script>
+	 	let _sortt=["values","elements","methods","proprties","object","array"];
+	 	let _result8=_sortt.sort();//alphabeticalorder
+	 	document.getElementById("sortt").innerHTML=_result8;
+	 </script>
+
+
+	 <h3 style ="color:red">splice()</h3>
+	 <em><span style="color:blue">splice()</span> method is </em>
+	 <p id="splicee"></p>
+	 <script>
+	 	let _splice=["hema","anu","pictures","snaps","crazzy"];
+	 	let _result9=_splice.splice(2,0,"life","enjoy");
+	 	document.getElementById("splicee").innerHTML=_result9;
+	 </script>
+
+
+
+	 <h3 style="color:red">unshift()</h3>
+	 <em><span style="color:blue">unshift()</span>method adds values to the end of the array</em>
+	 <p id= "unshift"></p>
+	 <p id="unshift2"></p>
+	 <script>
+	 	let _unshift=["shift","unshift","pop","push","reverse","sort"]
+	 	let _value10=_unshift.unshift("toString");
+	 	document.getElementById("unshift").innerHTML=_value10;
+	 	document.getElementById("unshift2").innerHTML=_unshift;
+	 </script>
+
+
+	 <h3 style="color:red">toString()</h3>
+	 <em><span style="color:blue">toString()</span> method convers array values into string values</em>
+	 <p id="string"></p>
+	 <script>
+	 	let _string=["length","replace","presenting","ppt","concentration"];
+	 	let _result20=_string.toString()
+	 	document.getElementById("string").innerHTML=_result20+"<br>"
+	 </script>
+
+
+<h2 style="text-align:center;color:orange">Set-2---------->Strings</h2>
+<h3>Write a program to return the length of a string "Pneumonoultramicroscopicsilicovolcanoconiosis". This question means return number of characters.</h3>
+<p>length of the given string is:</p>
+<p id="length"></p>
+<script>
+	let _string5="Pneumonoultramicroscopicsilicovolcanoconiosis";
+	let _string6=_string5.length
+	document.getElementById("length").innerHTML=_string6;
+
+</script>
+<h3>2.For the above question 1, return the number of time the letter "o" appears."Pneumonoultramicroscopicsilicovolcanoconiosis" </h3>
+<p id="y"></p>
+<script>
+	let h="Pneumonoultramicroscopicsilicovolcanoconiosis";
+	let y="8"
+	document.getElementById("y").innerHTML=y;
+
+</script>
+<h3>3.Write a program to search for a particular term in a sentence (you can come up with a sentence) and if you find the term, replace with the term "javascript"</h3>
+<p id="search"></p>
+<p id="replace"></p>
+<script>
+	let _search="perticular term in the sentence";
+	let _search2=_search.search("term")//it search for term and send output as its index number like 11
+	let _replace=_search.replace("term","javascript")//javascript replaced with term
+	document.getElementById("search").innerHTML=_search2
+document.getElementById("replace").innerHTML=_replace
+</script>
+
+<h3>Find the number of times the string "not" appears in this sentence</h3>
+<p id ="not"></p>
+<script>
+	let _not="Javascript notation %^&* notes that structure rules and not context for nothing"
+	let _not2=_not.match(/not/g)
+	document.getElementById("not").innerHTML=_not2
+</script>
+
+
+
+
+
+<h2 style="text-align:center;color:orange">Set-3---------->(Math and Date, browser)</h2>
+<h3>1.Write a program to convert Fahrenheit temperature to Celsius. Here are the things that needs to be implemented as a part of this questio?</h3>
+<em>Ask the input from the user for Fahrenheit using a text field</em>
+<em>As soon as the user types in the Fahrenheit number in the text field, the result should display immediately in the div below.Hence, there should not be any submit button.</em>
+<p>
+  <label>Fahrenheit</label>
+  <input id="inputFahrenheit" type="number" placeholder="Fahrenheit" oninput="temperatureConverter(this.value)" onchange="temperatureConverter(this.value)">
+</p>
+<p>Celcius: <span id="outputCelcius"></span></p>
+
+<script>
+function temperatureConverter(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputCelcius").innerHTML=(valNum-32)/1.8;
+}
+</script>
+
+
+
+<h3> Write a program to detect the current browser that the user is using</h3>
+<p id="oo">iam using chrome Agent</p>
+<script>
+	let chromeAgent = userAgentString.indexOf("chrome") > -1;
+	document.getElementById("oo").innerHTML= "iam using chromeAgent"+chromeAgent
+	</script>
+
+
+
+
+
+
+
+<h2 style="text-align:center;color:orange">Set-4----------></h2>
+<h3>Take an array of 10 elements and sort ascending and descending orders without using sort methods </h3>
+<p id="sort"></p>
+<script>
+	function bubbleSort(array) {
+  var done = false;
+  while (!done) {
+    done = true;
+    for (var i = 1; i < array.length; i += 1) {
+      if (array[i - 1] > array[i]) {
+        done = false;
+        var tmp = array[i - 1];
+        array[i - 1] = array[i];
+        array[i] = tmp;
+      }
+    }
+  }
+
+  return array;
+}
+
+var numbers = [12, 10, 15, 11, 14, 13, 16];
+bubbleSort(numbers);
+document.getElementById("sort").innerHTML=numbers
+</script>
+
+
+<h3>3.Remove duplicates from an array. Take a random array</h3>
+<p id ="remove"></p>
+<script>
+	let hema5=["hema","reddy","burgupally","reddy","reddy","reddy"];
+	let hema6= [...new Set(hema5)];
+	document.getElementById("remove").innerHTML=hema6;
+</script>
+ 
+ <h3>4.Add a class name to an element dynamically</h3>
+ <p id ="ent"></p>
+ <script>
+ document.getElementById("ent").setAttribute("class" ,"dy");
+ </script>
+
+
+<h3>5.Write stylings to an element dynamically</h3>
+<p id ="sty">hema reddy burguapally</p>
+
+<script>
+	document.getElementById("sty").style.color="red"
+</script>	 
+
+</body>
+</html>
